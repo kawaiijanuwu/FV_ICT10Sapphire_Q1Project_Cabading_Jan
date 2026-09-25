@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan's Brew Cafe - Receipt Generator</title>
+
+    <!-- python -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+    <!-- sw1 style stuff but improvised -->
+    <style>
+        body{
+            font-family: 'Lato', sans-serif;
+            background-color: #74A12E;
+            text-align: center;
+            color: #000000;
+            font-size: 25px;
+        }
+        nav{
+            background-color: #3F5F24;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        nav a{
+            color: #F5EEDC;
+            margin: 0 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .container{
+            width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #F5EEDC;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px #3F5F24;
+        }
+        .container button{
+            padding: 12px 35px;
+            margin: 15px;
+            background-color: #C47A44;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        h1{
+            color: #3F5F24;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        h3{
+            color: #5C3B28;
+        }
+        .coffee-option{
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            margin: 12px 0;
+            background-color: #FFF9EC;
+            border: 2px solid #C47A44;
+            border-radius: 12px;
+            font-size: 21px;
+        }
+        .pasta-option input{
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+        }
+        .receipt{
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #FFF9EC;
+            border-radius: 15px;
+            border: 2px solid #5C3B28;
+        }
+    </style>
+</head>
+<body>
+
+<!-- layout of skills test w/ navbar -->
+    <nav>
+        <a href="index.html">Receipt Generator</a>
+        <a href="skugen.html">SKU Generator</a>
+    </nav>
+
+    <div class="container">
+        <h1>Jan's Brew Cafe</h1>
+        <h3>Choose your Coffee!</h3>
+
+    <label class="coffee-option">
+        <input type="checkbox" id="spanish">
+        Spanish Latte - ₱130.00
+    </label>
+
+    <label class="coffee-option">
+        <input type="checkbox" id="coldbrew">
+        Iced Cold Brew - ₱110.00
+    </label>
+
+    <label class="coffee-option">
+        <input type="checkbox" id="caramac">
+        Caramel Macchiato - ₱125.00
+    </label>
+
+        <button py-click="order">Order</button>
+
+    <div id="receipt"></div>
+        <div class="receipt">
+            <h3>This is your Receipt!</h3>
+            <p> Subtotal: <span id="subtotal">₱0.00</span> </p>
+            <p> VAT (12%): <span id="vat">₱0.00</span> </p>
+            <p> Total: <span id="total">₱0.00</span> </p>
+        </div>
+    </div>
+
+    <script type="py" src="main.py"></script>
+
+</body>
+</html>
